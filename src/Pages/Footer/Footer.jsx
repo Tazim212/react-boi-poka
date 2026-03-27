@@ -4,10 +4,10 @@ import { FaFacebook, FaTwitter } from 'react-icons/fa';
 import { FaLinkedin } from 'react-icons/fa6';
 const Footer = () => {
     return (
-        <footer className="bg-base-200 text-base-content p-10">
+        <footer className="bg-gray-500 text-white p-10">
             <div className='flex flex-col md:flex-row justify-around items-start md:items-center'>
                 <aside>
-                    <img src={logo} className='w-32 h-28 mb-4 md:mb-0 rounded-full' alt="" />
+                    <img src={logo} className='w-32 h-28 mb-4 md:mb-0 -ml-3 md:ml-0 rounded-full' alt="" />
                     <p>
                         ACME Book Company
                         <br />
@@ -54,7 +54,7 @@ const Footer = () => {
             <div className="divider"></div>
 
             <aside>
-                <p className='text-center py-4'>Copyright ©2021 - All right reserved by ACME Book Company Ltd</p>
+                <p className='text-center py-2'>Copyright ©2021 - All right reserved by ACME Book Company Ltd</p>
             </aside>
         </footer>
     );
