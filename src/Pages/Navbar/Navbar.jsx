@@ -9,8 +9,8 @@ const Navbar = () => {
 
             <div className="flex justify-around items-center">
                 <label htmlFor="my-drawer-1" className="btn btn-accent lg:hidden"><LuAlignLeft className='text-2xl'></LuAlignLeft></label>
-                
-                <h1 className='text-2xl font-bold'>Book Vibes</h1>
+
+                <h1 className='text-xl md:text-2xl font-bold -ml-7 md:ml-0'>Book Vibes</h1>
                 <ul className="hidden lg:flex px-10">
                     <li className='px-2'>Home</li>
                     <li className='px-2'>Listed Books</li>
