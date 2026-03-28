@@ -8,7 +8,7 @@ const Banner = () => {
                 <h1 className='text-4xl font-bold pb-6'>Books to freshen<br></br> up your bookshelf</h1>
                 <button className='btn btn-accent mb-5 md:mb-0'>View The List</button>
             </div>
-            <img src={bannerPic} className='w-95 h-89 my-5 rounded-3xl ml-10 shadow-2xl bg-none' alt="" />
+            <img src={bannerPic} className='w-85 md:w-95 h-89 my-5 rounded-3xl ml-0 md:ml-10 shadow-2xl bg-none' alt="" />
         </div>
     );
 };

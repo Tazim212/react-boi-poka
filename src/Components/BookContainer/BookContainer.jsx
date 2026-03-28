@@ -17,7 +17,7 @@ const BookContainer = () => {
             <p className='text-center pb-3'>Books that you will like to read and show details</p>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6 py-4'>
                 {
-                    books.map(book =><BooksCard key={book.id} book={book}></BooksCard>)
+                    books.map(book =><BooksCard key={book.bookId} book={book}></BooksCard>)
                 }
             </div>
         </div>

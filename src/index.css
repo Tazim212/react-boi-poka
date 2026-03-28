@@ -1,0 +1,6 @@
+.active {
+    background-color: indigo;
+    padding: 3px 10px;
+    color: wheat;
+    border-radius: 8px;
+}
