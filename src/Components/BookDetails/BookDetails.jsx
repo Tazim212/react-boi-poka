@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { addStoredBooks } from '../../../bookReads';
 import { setWishLIst } from '../../../wishList';
+import Swal from 'sweetalert2';
 
 const BookDetails = () => {
     const { id } = useParams();
@@ -16,10 +17,22 @@ const BookDetails = () => {
     const singleBook = details.find(book => book.bookId === parseInt(id))
 
     const handleMarkRead = id => {
+        Swal.fire({
+            title: "Do you want to read the book?",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Yes",
+            denyButtonText: `No`
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) Swal.fire("Saved!", "", "success");
+            else if (result.isDenied) Swal.fire("Changes are not saved", "", "info");
+        });
         addStoredBooks(id)
     }
 
-    const handleWishList = id =>{
+    const handleWishList = id => {
+        Swal.fire("Successfully added to the wishlist")
         setWishLIst(id)
     }
     return (
