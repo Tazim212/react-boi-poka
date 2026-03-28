@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router';
 import { getStoredBooks } from '../../../bookReads';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -9,14 +8,16 @@ const ListedBooks = () => {
 
     const [readList, setReadList] = useState([])
 
-    const bookData = useLoaderData()
-
+    console.log(readList)
     useEffect(() => {
-        const storedReadList = getStoredBooks();
-        const convertId = storedReadList.map(id => parseInt(id))
-        const storedData = bookData.filter(book => convertId.includes(book.bookId));
-        setReadList(storedData)
+        fetch("/booksData.json")
+        .then(res =>res.json())
+        .then(data =>setReadList(data))
     }, [])
+
+    const storedReadList = getStoredBooks();
+    const convertId = storedReadList.map(id => parseInt(id))
+    const storedData = readList?.filter(book => convertId.includes(book.bookId));
 
     const handleSorting = e => {
         const sortingInput = e.target.value;
@@ -49,7 +50,7 @@ const ListedBooks = () => {
 
                 <TabPanel>
                     {
-                        readList.map(list => <ListedCard key={list.bookId} list={list}></ListedCard>)
+                        storedData.map(list => <ListedCard key={list.bookId} list={list}></ListedCard>)
                     }
                 </TabPanel>
                 <TabPanel>
