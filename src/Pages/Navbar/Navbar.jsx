@@ -18,7 +18,7 @@ const Navbar = () => {
                     <NavLink to="/listedbooks" className={({ isActive }) =>
                         isActive ? "active" : ""
                     }><li className='px-2'>Listed Books</li></NavLink>
-                    <NavLink to="/pagesread" className={({ isActive }) =>
+                    <NavLink to="/pagestoread" className={({ isActive }) =>
                         isActive ? "active" : ""
                     }><li className='pl-3'>Pages To Read</li></NavLink>
                 </ul>
@@ -37,7 +37,7 @@ const Navbar = () => {
                     <NavLink to="/listedbooks" className={({ isActive }) =>
                         isActive ? "active" : ""
                     }><li className='pb-2'>Listed Books</li></NavLink>
-                    <NavLink to="/pagesread" className={({ isActive }) =>
+                    <NavLink to="/pagestoread" className={({ isActive }) =>
                         isActive ? "active" : ""
                     }><li>Pages To Read</li></NavLink>
                 </ul>

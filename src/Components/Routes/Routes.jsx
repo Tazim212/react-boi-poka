@@ -4,6 +4,7 @@ import App from '../../App';
 import Home from '../../Pages/Home/Home';
 import ListedBooks from '../ListedBooks/ListedBooks';
 import BookDetails from '../BookDetails/BookDetails';
+import PagesToRead from '../PagesToRead/PagesToRead';
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
             {
                 path: '/bookdetails/:id',
                 Component: BookDetails
+            },
+            {
+                path: '/pagestoread',
+                Component: PagesToRead
             },
         ]
     },
