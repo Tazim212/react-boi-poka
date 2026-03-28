@@ -48,10 +48,9 @@ const PagesToRead = () => {
     return (
         <div className='bg-gray-200'>
             <BarChart
-                style={{ width: '1000px', height: "500px", aspectRatio: 1.618 }}
                 responsive
                 data={shape}
-                className='pt-10 ps-2 md:ps-10'
+                className='pt-10 ps-0 md:ps-10 w-95 md:w-250 h-125'
             >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="bookName" interval={0} angle={-25} textAnchor='end' height={140} />
