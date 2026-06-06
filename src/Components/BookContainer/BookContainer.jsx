@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import BooksCard from '../BooksCard/BooksCard';
+import useAxios from '../../hooks/useAxios';
 
 const BookContainer = () => {
 
     const [books, setBooks] = useState([]);
+    const axiosInstance = useAxios()
 
     useEffect(() =>{
-        fetch("/booksData.json")
-        .then(res =>res.json())
-        .then(data => setBooks(data))
+        axiosInstance.get("/allbooks")
+        .then(data => {
+            setBooks(data.data)
+        })
     }, [])
 
     return (
@@ -17,7 +20,7 @@ const BookContainer = () => {
             <p className='text-center pb-3'>Books that you will like to read and show details</p>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6 py-4'>
                 {
-                    books.map(book =><BooksCard key={book.bookId} book={book}></BooksCard>)
+                    books.map(book =><BooksCard key={book._id} book={book}></BooksCard>)
                 }
             </div>
         </div>
