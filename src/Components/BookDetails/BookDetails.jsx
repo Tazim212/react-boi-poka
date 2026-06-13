@@ -3,18 +3,19 @@ import { useParams } from 'react-router';
 import { addStoredBooks } from '../../../bookReads';
 import { setWishLIst } from '../../../wishList';
 import Swal from 'sweetalert2';
+import useAxios from '../../hooks/useAxios';
 
 const BookDetails = () => {
     const { id } = useParams();
     const [details, setDetails] = useState([]);
+    const axiosInstance = useAxios()
+
 
     useEffect(() => {
-        fetch("/booksData.json")
-            .then(res => res.json())
-            .then(data => setDetails(data))
+        axiosInstance.get(`/bookdetails/${id}`)
+            .then(data => setDetails(data.data))
     }, [])
 
-    const singleBook = details.find(book => book.bookId === parseInt(id))
 
     const handleMarkRead = id => {
         Swal.fire({
@@ -44,40 +45,40 @@ const BookDetails = () => {
         <div className="hero min-h-screen bg-gray-200 text-black pt-7">
             <div className="flex flex-col gap-9 lg:flex-row">
                 <img
-                    src={singleBook?.image}
+                    src={details?.image}
                     className="w-80 h-100 rounded-lg shadow-2xl ml-5 md:ml-10"
                 />
                 <div className='w-full md:w-1/2'>
-                    <h1 className="text-2xl md:text-5xl font-bold text-center md:text-left">{singleBook?.bookName}</h1>
+                    <h1 className="text-2xl md:text-5xl font-bold text-center md:text-left">{details?.bookName}</h1>
                     <div className='flex flex-col mt-5'>
-                        <span className='font-semibold text-xl text-center md:text-left'>By :  {singleBook?.publisher}</span>
-                        <div className="badge badge-neutral badge-dash mt-8 mx-auto md:mx-0">{singleBook?.category}</div>
+                        <span className='font-semibold text-xl text-center md:text-left'>By :  {details?.publisher}</span>
+                        <div className="badge badge-neutral badge-dash mt-8 mx-auto md:mx-0">{details?.category}</div>
                     </div>
                     <p className="py-6 mx-2 md:mx-0 text-center md:text-left">
-                        {singleBook?.review}
+                        {details?.review}
                     </p>
                     <div className='flex items-center pb-5 ml-4 md:ml-0'>
-                        <div className="badge badge-dash badge-accent mr-4">{singleBook?.tags[0]}</div>
-                        <div className="badge badge-dash badge-accent">{singleBook?.tags[1]}</div>
+                        {details.tags?.map((tag, index) =><div key={index} className="badge badge-dash badge-accent mr-4">{tag}</div>)}
+                        
                     </div>
 
                     <div className="divider divider-accent"></div>
 
                     <div className='flex gap-5 md:gap-20 ml-4 md:ml-0'>
                         <p className='font-semibold'>Number of Pages : </p>
-                        <span>{singleBook?.totalPages}</span>
+                        <span>{details?.totalPages}</span>
                     </div>
                     <div className='flex gap-5 md:gap-32 py-2 ml-4 md:ml-0'>
                         <p className='font-semibold'>Publisher : </p>
-                        <span>{singleBook?.publisher}</span>
+                        <span>{details?.publisher}</span>
                     </div>
                     <div className='flex gap-3 md:gap-20 ml-4 md:ml-0'>
                         <p className='font-semibold'>Year of Publishing: </p>
-                        <span>{singleBook?.yearOfPublishing}</span>
+                        <span>{details?.yearOfPublishing}</span>
                     </div>
                     <div className='flex gap-5 md:gap-40 py-2 ml-4 md:ml-0'>
                         <p className='font-semibold'>Rating : </p>
-                        <span>{singleBook?.rating}</span>
+                        <span>{details?.rating}</span>
                     </div>
 
                     <div className='my-6 ml-3 md:ml-0'>

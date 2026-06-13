@@ -6,6 +6,8 @@ import ListedBooks from '../ListedBooks/ListedBooks';
 import BookDetails from '../BookDetails/BookDetails';
 import PagesToRead from '../PagesToRead/PagesToRead';
 import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
+import LogIn from '../../Pages/LogIn/LogIn';
+import SignUp from '../../Pages/SignUp/SIgnUp';
 
 export const router = createBrowserRouter([
     {
@@ -23,12 +25,20 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/bookdetails/:id',
-                Component: BookDetails
+                Component: BookDetails,
             },
             {
                 path: '/pagestoread',
                 Component: PagesToRead
             },
+            {
+                path: "/login",
+                Component: LogIn
+            },
+            {
+                path: "/register",
+                Component: SignUp
+            }
         ]
     },
 ]);

@@ -1,8 +1,20 @@
 import React from 'react';
 import { LuAlignLeft } from 'react-icons/lu';
 import { Link, NavLink } from 'react-router';
+import useAuth from '../../hooks/useAuth';
 
 const Navbar = () => {
+    const { user, SignOut } = useAuth()
+
+    const handleSignOut = () =>{
+        SignOut()
+        .then()
+        .catch(err =>{
+            console.log(err)
+        })
+    }
+
+
     return (
         <div className='bg-linear-to-l from-blue-950 to-cyan-500'>
             <input id="my-drawer-1" type="checkbox" className="drawer-toggle" />
@@ -23,9 +35,16 @@ const Navbar = () => {
                     }><li className='pl-3'>Pages To Read</li></NavLink>
                 </ul>
 
-                <div className='my-3'>
-                    <button className='btn btn-secondary mr-1.5 md:mr-6 rounded-md'>Sign In</button>
-                    <button className='btn btn-success rounded-md'>Sign Up</button>
+                <div className='my-3 flex gap-2 items-center'>
+                    <p>{user?.displayName}</p>
+                    {
+                        user ?
+                            <Link><button onClick={handleSignOut} className='btn btn-secondary rounded-md'>Sign Out</button></Link>
+                            :
+                            <Link to="/login"><button className='btn btn-secondary rounded-md'>Sign In</button></Link>
+
+                    }
+                    {/* <button className='btn btn-success rounded-md'>Sign Up</button> */}
                 </div>
             </div>
             <div className="drawer-side">

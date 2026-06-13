@@ -4,15 +4,15 @@ import { Link } from 'react-router';
 
 const BooksCard = ({ book }) => {
 
-    const {bookId, bookName, image, tags, rating, publisher, category } = book;
+    const { bookName, image, tags, rating, publisher, category, _id} = book;
     return (
-        <Link to={`/bookdetails/${bookId}`}>
-            <div className="card bg-linear-to-l from-gray-700 to-cyan-600 text-white w-75 h-full shadow-sm mx-auto 
+        <Link to={`/bookdetails/${_id}`}>
+            <div className="card bg-linear-to-l from-gray-700 to-cyan-600 text-white w-75 h-85 shadow-sm mx-auto 
         transition delay-150 duration-300 ease-linear hover:-translate-y-4 hover:scale-110">
                 <figure>
                     <img
                         src={image}
-                        className='w-64 h-60 pt-2 rounded-3xl shadow-lg'
+                        className='h-48 w-full object-fill rounded shadow-lg'
                         alt="Shoes" />
                 </figure>
                 <div className="card-body">

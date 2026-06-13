@@ -3,7 +3,6 @@ import Banner from '../../Components/Banner/Banner';
 import BookContainer from '../../Components/BookContainer/BookContainer';
 
 const Home = () => {
-
     return (
         <div>
             <Banner></Banner>

@@ -3,14 +3,15 @@ import { getStoredBooks } from '../../../bookReads';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ListedCard from '../ListedCard/ListedCard';
+import useAxios from '../../hooks/useAxios';
 
 const ListedBooks = () => {
 
     const [readList, setReadList] = useState([])
-
-    console.log(readList)
+    const axiosInstance = useAxios()
+    // console.log(readList)
     useEffect(() => {
-        fetch("/booksData.json")
+        axiosInstance.get("/")
         .then(res =>res.json())
         .then(data =>setReadList(data))
     }, [])
