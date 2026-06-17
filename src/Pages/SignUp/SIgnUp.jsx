@@ -25,17 +25,16 @@ const SignUp = () => {
 
         try {
             await createUser(email, password);
-            await updateUser(name); 
+            await updateUser(name);
 
             const userInfo = { displayName: name, email };
             const { data } = await axiosInstance.post("/users", userInfo);
-            if(data.insertedId){
+            if (data.insertedId) {
                 Swal.fire("user created Successfully")
                 navigate(location?.state || "/")
                 e.target.reset()
             }
 
-            e.target.reset();
         } catch (err) {
             // console.error(err);
             setError(err.message);
@@ -108,19 +107,23 @@ const SignUp = () => {
                         </label>
                         {show ?
                             <FaEye onClick={() => setShow(false)} className='absolute right-13 top-60 cursor-pointer'></FaEye> :
-                            <FaEyeSlash onClick={() => setShow(true)} className='absolute right-13 top-60 cursor-pointer'></FaEyeSlash>}
+                            <FaEyeSlash onClick={() => setShow(true)} className='absolute right-13 top-60 cursor-pointer'></FaEyeSlash>
+                        }
+
                         <p className="validator-hint hidden">
                             Must be more than 8 characters, including,one number,one lowercase letter,one uppercase letter
                         </p>
+
                         <div><a className="link link-hover">Forgot password?</a></div>
                         <button type="submit" className="btn btn-neutral mt-4">Register</button>
                     </fieldset>
+                    
                     <p>Already have an account? <Link to="/login" className="underline">Log in Now</Link></p>
-                {error && <p className="text-center text-red-600">{error}</p>}
+                    {error && <p className="text-center text-red-600">{error}</p>}
                 </form>
 
                 <div className="divider">OR</div>
-                <button type="button" onClick={handleGoogleSign} className="btn bg-white text-black border-[#e5e5e5] w-3/4 mx-auto">
+                <button type="button" onClick={handleGoogleSign} className="btn bg-white text-black border-[#e5e5e5] w-3/4 mx-auto mb-3">
                     <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="m0 0H512V512H0" fill="#fff"></path><path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
                     SignUp with Google
                 </button>

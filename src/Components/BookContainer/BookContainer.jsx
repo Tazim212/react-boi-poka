@@ -8,7 +8,7 @@ const BookContainer = () => {
     const axiosInstance = useAxios()
 
     useEffect(() =>{
-        axiosInstance.get("/allbooks")
+        axiosInstance.get("/latestbook")
         .then(data => {
             setBooks(data.data)
         })

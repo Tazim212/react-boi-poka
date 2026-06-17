@@ -8,6 +8,7 @@ import PagesToRead from '../PagesToRead/PagesToRead';
 import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
 import LogIn from '../../Pages/LogIn/LogIn';
 import SignUp from '../../Pages/SignUp/SIgnUp';
+import AllBooks from '../AllBooks/AllBooks';
 
 export const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 Component: Home
+            },
+            {
+                path: "/allbooks",
+                Component: AllBooks
             },
             {
                 path: '/listedbooks',

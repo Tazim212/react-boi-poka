@@ -8,6 +8,8 @@ import useAxios from '../../hooks/useAxios';
 const BookDetails = () => {
     const { id } = useParams();
     const [details, setDetails] = useState([]);
+    const [isExpanded, setIsExpanded] = useState(false);
+
     const axiosInstance = useAxios()
 
 
@@ -31,9 +33,9 @@ const BookDetails = () => {
                 addStoredBooks(id)
                 return
             }
-            else if (result.isDenied){
+            else if (result.isDenied) {
                 Swal.fire("Changes are not saved", "", "info");
-            } 
+            }
         });
     }
 
@@ -41,6 +43,8 @@ const BookDetails = () => {
         Swal.fire("Successfully added to the wishlist")
         setWishLIst(id)
     }
+
+    console.log(details)
     return (
         <div className="hero min-h-screen bg-gray-200 text-black pt-7">
             <div className="flex flex-col gap-9 lg:flex-row">
@@ -54,12 +58,34 @@ const BookDetails = () => {
                         <span className='font-semibold text-xl text-center md:text-left'>By :  {details?.publisher}</span>
                         <div className="badge badge-neutral badge-dash mt-8 mx-auto md:mx-0">{details?.category}</div>
                     </div>
-                    <p className="py-6 mx-2 md:mx-0 text-center md:text-left">
+
+                    {/* <p className={`py-6 text-center md:text-left ${!isExpanded ? "line-clamp-3" : ""}`}>
                         {details?.review}
                     </p>
-                    <div className='flex items-center pb-5 ml-4 md:ml-0'>
-                        {details.tags?.map((tag, index) =><div key={index} className="badge badge-dash badge-accent mr-4">{tag}</div>)}
-                        
+
+                    {details?.review && details.review.length > 150 && (
+                        <button
+                            onClick={() => setIsExpanded(!isExpanded)}
+                            className="text-blue-500 font-medium hover:underline cursor-pointer"
+                        >
+                            {isExpanded ? "Read Less" : "Read More"}
+                        </button>
+                    )} */}
+
+                    <p className={`py-6 mx-2 md:mx-0 text-center md:text-left ${!isExpanded ? "line-clamp-3" : ""}`}>
+                        {details?.review}
+                    </p>
+
+                    {details?.review?.length > 140 &&
+                        <button onClick={() => setIsExpanded(!isExpanded)} 
+                        className='text-blue-500 font-medium hover:underline cursor-pointer'>
+                            {isExpanded ? "Read Less" : "Read More"}
+                        </button>
+                    }
+
+                    <div className='flex items-center py-2 ml-4 md:ml-0'>
+                        {details.tags?.map((tag, index) => <div key={index} className="badge badge-dash badge-accent mr-4">{tag}</div>)}
+
                     </div>
 
                     <div className="divider divider-accent"></div>
