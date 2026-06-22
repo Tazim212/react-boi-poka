@@ -9,6 +9,7 @@ import ErrorPage from '../../Pages/ErrorPage/ErrorPage';
 import LogIn from '../../Pages/LogIn/LogIn';
 import SignUp from '../../Pages/SignUp/SIgnUp';
 import AllBooks from '../AllBooks/AllBooks';
+import PrivateRoute from '../../Pages/PrivateRoute/PrivateRoute';
 
 export const router = createBrowserRouter([
     {
@@ -26,11 +27,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/listedbooks',
-                Component: ListedBooks,
+                element: <PrivateRoute><ListedBooks></ListedBooks></PrivateRoute>
             },
             {
                 path: '/bookdetails/:id',
-                Component: BookDetails,
+                element: <PrivateRoute><BookDetails></BookDetails></PrivateRoute>
             },
             {
                 path: '/pagestoread',

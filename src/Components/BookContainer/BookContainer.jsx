@@ -16,7 +16,7 @@ const BookContainer = () => {
 
     return (
         <div className='bg-gray-300 text-black'>
-            <h1 className='text-3xl font-bold text-center pt-4'>Books</h1>
+            <h1 className='text-4xl font-bold text-center pt-4'>Books</h1>
             <p className='text-center pb-3'>Books that you will like to read and show details</p>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6 py-4'>
                 {

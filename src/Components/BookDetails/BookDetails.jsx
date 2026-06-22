@@ -18,17 +18,18 @@ const BookDetails = () => {
             .then(data => setDetails(data.data));
     }, [id]);
 
-    useEffect(() => {
-        if (!user?.email) return;
-        axiosInstance.get(`/savedbook?email=${user?.email}`)
-            .then(res => {
-                setSavedMark(res.data);
-            });
-    }, [id, user?.email]);
-
     // const isSaved = savedMark.find(book => book.bookId === id);
 
     const handleMarkRead = async () => {
+
+        useEffect(() => {
+            if (!user?.email) return;
+            axiosInstance.get(`/savedbook?email=${user?.email}`)
+                .then(res => {
+                    setSavedMark(res.data);
+                });
+        }, [id, user?.email]);
+        
         const result = await Swal.fire({
             title: "Do you want to read the book?",
             showDenyButton: true,

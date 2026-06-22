@@ -21,7 +21,7 @@ const BooksCard = ({ book }) => {
                         <div className="badge badge-dash badge-warning">{tags[1]}</div>
                     </div>
                     <h2 className="card-title">
-                        {bookName}
+                       Title: {bookName}
                     </h2>
                     <p className='font-semibold'>By: {publisher}</p>
                     <div className="divider divider-accent"></div>

@@ -10,7 +10,6 @@ const ListedBooks = () => {
     const [readList, setReadList] = useState([])
     const axiosInstance = useAxios()
 
-    const [activeTab, setActiveTab] = useState([]);
 
     useEffect(() => {
         if (!user?.email) return;
