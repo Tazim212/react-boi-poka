@@ -3,10 +3,11 @@ import { useParams } from 'react-router';
 import Swal from 'sweetalert2';
 import useAxios from '../../hooks/useAxios';
 import useAuth from '../../hooks/useAuth';
+import { FaStar } from 'react-icons/fa';
 
 const BookDetails = () => {
     const { id } = useParams();
-    const [details, setDetails] = useState({});
+    const [details, setDetails] = useState([]);
     const [isExpanded, setIsExpanded] = useState(false);
     const [savedMark, setSavedMark] = useState([]);
     const { user } = useAuth();
@@ -29,7 +30,7 @@ const BookDetails = () => {
                     setSavedMark(res.data);
                 });
         }, [id, user?.email]);
-        
+
         const result = await Swal.fire({
             title: "Do you want to read the book?",
             showDenyButton: true,
@@ -118,7 +119,6 @@ const BookDetails = () => {
                     </div>
                     <div className='flex gap-5 md:gap-40 py-2 ml-4 md:ml-0'>
                         <p className='font-semibold'>Rating : </p>
-                        <span>{details?.rating}</span>
                     </div>
 
                     <div className='my-6 ml-3 md:ml-0'>
