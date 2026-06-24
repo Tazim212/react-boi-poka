@@ -13,8 +13,8 @@ const AllBooksCard = ({ book }) => {
                     className="rounded-3xl h-48 md:h-74 w-full object-cover px-2 md:px-0" />
             </figure>
             <div className="card-body items-center text-center">
-                <h2 className="">{bookName}</h2>
-                <p>{author}</p>
+                <h2 className="text-xl"> <span className="font-bold">Title:</span> {bookName}</h2>
+                <p><span className="font-bold">Author Name:</span> {author}</p>
                 <div className="card-actions">
                     <Link to={`/bookdetails/${_id}`}><button className="btn btn-info btn-outline">View Details</button></Link>
                 </div>

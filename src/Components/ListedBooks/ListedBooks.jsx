@@ -37,7 +37,7 @@ const ListedBooks = () => {
     //    }
 
     return (
-        <div className='bg-gray-300 text-black pb-10'>
+        <div className='pb-10'>
             <h1 className='text-3xl text-center font-bold py-3 bg-gray-100'>Books</h1>
 
             <select defaultValue="Pick a text editor" className="bg-green-600 text-white flex mx-auto w-24 my-3 select-primary rounded-lg py-2 px-2">

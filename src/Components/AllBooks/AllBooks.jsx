@@ -25,11 +25,11 @@ const AllBooks = () => {
                 {allbooks.map(book => <AllBooksCard key={book._id} book={book}></AllBooksCard>)}
             </div>
 
-            <div className="flex justify-center gap-2 mt-6 pb-10">
+            <div className="flex flex-wrap md:flex-nowrap justify-center gap-2 mt-6 pb-10">
                 <button
                     disabled={page === 1}
                     onClick={() => setPage(prev => prev - 1)}
-                    className="px-3 py-1 border"
+                    className="px-3 py-1 border cursor-pointer"
                 >
                     Prev
                 </button>
@@ -38,7 +38,7 @@ const AllBooks = () => {
                     <button
                         key={num}
                         onClick={() => setPage(num + 1)}
-                        className={`px-3 py-1 border ${page === num + 1 ? "bg-cyan-700 text-white" : ""
+                        className={`px-3 py-1 border cursor-pointer ${page === num + 1 ? "bg-cyan-700 text-white" : ""
                             }`}
                     >
                         {num + 1}
@@ -48,7 +48,7 @@ const AllBooks = () => {
                 <button
                     disabled={page === totalPages}
                     onClick={() => setPage(prev => prev + 1)}
-                    className="px-3 py-1 border"
+                    className="px-3 py-1 border cursor-pointer"
                 >
                     Next
                 </button>
