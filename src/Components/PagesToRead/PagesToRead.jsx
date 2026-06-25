@@ -44,7 +44,7 @@ const PagesToRead = () => {
     const axiosInstance = useAxios()
 
     useEffect(() => {
-        if (user?.email && loading) return;
+        if (!user?.email && loading) return;
         axiosInstance.get(`/savedbook?email=${user?.email}`)
             .then(data => setShape(data.data))
     }, [user?.email])
@@ -54,7 +54,7 @@ const PagesToRead = () => {
             <BarChart
                 responsive
                 data={shape}
-                className='pt-10 ps-0 md:ps-10 w-95 md:w-250 h-125'
+                className='pt-10 ps-0 md:ps-4 w-90 md:w-250 h-125'
             >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="bookName" interval={0} angle={-25} textAnchor='end' height={140} />

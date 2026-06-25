@@ -3,7 +3,7 @@ import faqimg from '../../assets/faqBanner.jpg'
 const FAQ = () => {
     return (
         <section className="text-center md:text-right p-5 text-black">
-            <h1 className="font-bold text-3xl py-2">Faq Questions</h1>
+            <h1 className="font-bold text-2xl md:text-4xl py-2">Faq Questions</h1>
             <p>You can see your common questions answer hera.</p>
 
 
@@ -12,7 +12,7 @@ const FAQ = () => {
                     <img src={faqimg} className='rounded-full mask-b-from-20% shadow-2xl pt-3' alt="" />
                 </div>
 
-                <div className='w-1/2 space-y-3'>
+                <div className='w-3/4 md:w-1/2 space-y-3'>
                     <div className="collapse border bg-cyan-700 collapse-plus text-gray-200">
                         <input type="checkbox" />
                         <div className="collapse-title  font-semibold">How do I add a book to my reading list?</div>

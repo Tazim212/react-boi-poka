@@ -11,13 +11,13 @@ const UserReviews = () => {
     return (
         <div className='bg-gray-300 py-3'>
             <div className=' py-2 ps-0 md:ps-5 text-black text-center md:text-left'>
-                <h1 className="font-bold text-4xl">Reviews</h1>
+                <h1 className="font-bold text-2xl md:text-4xl">Reviews</h1>
                 <p className='pt-2'>Our users gave their valuable reviews</p>
             </div>
 
             {/* ------------------ review-1 -------------- */}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-20 md:mx-0 p-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-4 md:mx-0 p-4">
 
                 <div className="card image-full w-75 shadow-sm">
                     <figure>

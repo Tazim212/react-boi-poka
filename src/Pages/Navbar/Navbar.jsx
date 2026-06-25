@@ -39,6 +39,7 @@ const Navbar = () => {
                     <NavLink to="/contactus" className={({ isActive }) =>
                         isActive ? "active" : ""
                     }><li className='pl-3'>Contact Us</li></NavLink>
+
                 </ul>
 
                 <div className='my-3 flex gap-2 items-center'>
@@ -65,6 +66,10 @@ const Navbar = () => {
                     <NavLink to="/pagestoread" className={({ isActive }) =>
                         isActive ? "active" : ""
                     }><li>Pages To Read</li></NavLink>
+                    <NavLink to="/contactus" className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }><li>Contact Us</li></NavLink>
+
                 </ul>
             </div>
         </div>

@@ -39,7 +39,7 @@ const ListedBooks = () => {
 
     return (
         <div className='pb-10'>
-            <h1 className='text-3xl text-center font-bold py-3 text-black'>Books You Saved To Read</h1>
+            <h1 className='text-2xl md:text-4xl text-center font-bold py-3 text-black'>Books You Saved To Read</h1>
 
             <select defaultValue="Pick a text editor" className="bg-green-600 text-white flex mx-auto w-24 my-3 select-primary rounded-lg py-2 px-2">
                 <option className='font-semibold'>Sort By</option>
