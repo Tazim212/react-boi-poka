@@ -6,7 +6,7 @@ import Footer from './Pages/Footer/Footer'
 function App() {
 
   return (
-    <div className='bg-gray-300'>
+    <div className='bg-gray-300 max-w-350'>
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>

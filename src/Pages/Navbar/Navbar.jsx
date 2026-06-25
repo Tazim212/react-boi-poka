@@ -6,12 +6,12 @@ import useAuth from '../../hooks/useAuth';
 const Navbar = () => {
     const { user, SignOut } = useAuth()
 
-    const handleSignOut = () =>{
+    const handleSignOut = () => {
         SignOut()
-        .then()
-        .catch(err =>{
-            console.log(err)
-        })
+            .then()
+            .catch(err => {
+                console.log(err)
+            })
     }
 
 
@@ -23,16 +23,22 @@ const Navbar = () => {
                 <label htmlFor="my-drawer-1" className="btn btn-accent lg:hidden"><LuAlignLeft className='text-2xl'></LuAlignLeft></label>
 
                 <Link to="/"><h1 className='text-xl md:text-2xl font-bold -ml-1 md:ml-0'>Book Vibes</h1></Link>
+
                 <ul className="hidden lg:flex px-10">
                     <NavLink to="/" className={({ isActive }) =>
                         isActive ? "active" : ""
                     }><li className='px-2'>Home</li></NavLink>
-                    <NavLink to="/listedbooks" className={({ isActive }) =>
+
+                    {user && <NavLink to="/listedbooks" className={({ isActive }) =>
                         isActive ? "active" : ""
-                    }><li className='px-2'>Listed Books</li></NavLink>
+                    }><li className='px-2'>Listed Books</li></NavLink>}
+
                     <NavLink to="/pagestoread" className={({ isActive }) =>
                         isActive ? "active" : ""
                     }><li className='pl-3'>Pages To Read</li></NavLink>
+                    <NavLink to="/contactus" className={({ isActive }) =>
+                        isActive ? "active" : ""
+                    }><li className='pl-3'>Contact Us</li></NavLink>
                 </ul>
 
                 <div className='my-3 flex gap-2 items-center'>

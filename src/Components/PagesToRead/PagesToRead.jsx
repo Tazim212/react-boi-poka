@@ -7,6 +7,8 @@ import {
     CartesianGrid,
     Tooltip,
 } from 'recharts';
+import useAxios from '../../hooks/useAxios';
+import useAuth from '../../hooks/useAuth';
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink', 'black'];
 
@@ -38,12 +40,14 @@ const TriangleBar = (props) => {
 const PagesToRead = () => {
 
     const [shape, setShape] = useState([])
+    const { user, loading } = useAuth()
+    const axiosInstance = useAxios()
 
     useEffect(() => {
-        fetch("/booksData.json")
-            .then(res => res.json())
-            .then(data => setShape(data))
-    }, [])
+        if (user?.email && loading) return;
+        axiosInstance.get(`/savedbook?email=${user?.email}`)
+            .then(data => setShape(data.data))
+    }, [user?.email])
 
     return (
         <div className='bg-gray-200'>

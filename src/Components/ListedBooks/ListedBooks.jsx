@@ -19,6 +19,7 @@ const ListedBooks = () => {
             })
     }, [user?.email])
 
+
     //     const storedReadList = getStoredBooks();
     //     const convertId = storedReadList.map(id => parseInt(id))
     //     const storedData = readList?.filter(book => convertId.includes(book.bookId));
@@ -38,7 +39,7 @@ const ListedBooks = () => {
 
     return (
         <div className='pb-10'>
-            <h1 className='text-3xl text-center font-bold py-3 bg-gray-100'>Books</h1>
+            <h1 className='text-3xl text-center font-bold py-3 text-black'>Books You Saved To Read</h1>
 
             <select defaultValue="Pick a text editor" className="bg-green-600 text-white flex mx-auto w-24 my-3 select-primary rounded-lg py-2 px-2">
                 <option className='font-semibold'>Sort By</option>
@@ -46,7 +47,7 @@ const ListedBooks = () => {
                 <option value="hightolow" className='px-3'>High To Low</option>
             </select>
 
-            <div className='ms-10 bg-gray-500 p-3'>
+            <div className='mx-auto bg-linear-to-bl from-olive-600 to-emerald-700 w-3/4'>
                 <Tabs>
                     <TabList>
                         {
@@ -57,13 +58,18 @@ const ListedBooks = () => {
 
                     {
                         readList.map(list => <TabPanel key={list._id}>
-                            <div className="card w-80 bg-sky-600 card-md shadow-sm text-white">
-                                <div className="card-body">
-                                    <h2 className="card-title">BookName: {list.bookName}</h2>
-                                    <p>Email: {list.email}</p>
-                                </div>
-                                <div className='card-actions mr-4 mb-3 justify-end'>
-                                    <Link to={`/bookdetails/${list.bookId}`}><button className='btn btn-soft btn-primary'>Read Now</button></Link>
+                            <div className="card bg-blue-950 w-65 shadow-sm">
+                                <figure className="px-10 pt-10">
+                                    <img
+                                        src={list.image}
+                                        alt="Shoes"
+                                        className="rounded-xl" />
+                                </figure>
+                                <div className="card-body items-center text-center">
+                                    <h2 className="card-title">Book Name: {list.bookName}</h2>
+                                    <div className="card-actions">
+                                        <Link to={`/bookdetails/${list.bookId}`}><button className="btn btn-outline btn-accent">Read Now</button></Link>
+                                    </div>
                                 </div>
                             </div>
                         </TabPanel>)

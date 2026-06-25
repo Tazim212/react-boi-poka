@@ -4,7 +4,7 @@ const FAQ = () => {
     return (
         <section className="text-center md:text-right p-5 text-black">
             <h1 className="font-bold text-3xl py-2">Faq Questions</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, perferendis?</p>
+            <p>You can see your common questions answer hera.</p>
 
 
             <section className='flex flex-col md:flex-row gap-6 my-4 justify-around items-center'>

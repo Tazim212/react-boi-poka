@@ -10,6 +10,7 @@ import LogIn from '../../Pages/LogIn/LogIn';
 import SignUp from '../../Pages/SignUp/SIgnUp';
 import AllBooks from '../AllBooks/AllBooks';
 import PrivateRoute from '../../Pages/PrivateRoute/PrivateRoute';
+import ContactUs from '../ContactUs/ContactUs';
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path: '/pagestoread',
                 Component: PagesToRead
+            },
+            {
+                path: "/contactus",
+                Component: ContactUs
             },
             {
                 path: "/login",
