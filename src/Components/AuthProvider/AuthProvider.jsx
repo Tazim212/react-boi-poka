@@ -30,7 +30,7 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser)
             if (currentUser) {
                 const loggedUser = { email: currentUser?.email }
-                axios.post("http://localhost:5000/gettoken", loggedUser)
+                axios.post("https://book-server-ofbz.onrender.com/gettoken", loggedUser)
                     .then(data => {
                         localStorage.setItem("token", data.data.token)
                         setLoading(false)
