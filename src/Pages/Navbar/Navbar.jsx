@@ -6,6 +6,25 @@ import useAuth from '../../hooks/useAuth';
 const Navbar = () => {
     const { user, SignOut } = useAuth()
 
+    const lists = <>
+        <NavLink to="/" className={({ isActive }) =>
+            isActive ? "active" : ""
+        }><li className='px-2'>Home</li></NavLink>
+
+        {user && <NavLink to="/listedbooks" className={({ isActive }) =>
+            isActive ? "active" : ""
+        }><li className='px-2'>Listed Books</li></NavLink>}
+
+        {
+            user && <NavLink to="/pagestoread" className={({ isActive }) =>
+                isActive ? "active" : ""
+            }><li className='pl-1.5 md:pl-3'>Pages To Read</li></NavLink>
+        }
+        <NavLink to="/contactus" className={({ isActive }) =>
+            isActive ? "active" : ""
+        }><li className='pl-1.5 md:pl-3 pt-0.5 md:pt-0'>Contact Us</li></NavLink>
+    </>
+
     const handleSignOut = () => {
         SignOut()
             .then()
@@ -25,21 +44,7 @@ const Navbar = () => {
                 <Link to="/"><h1 className='text-xl md:text-2xl font-bold -ml-1 md:ml-0'>Book Vibes</h1></Link>
 
                 <ul className="hidden lg:flex px-10">
-                    <NavLink to="/" className={({ isActive }) =>
-                        isActive ? "active" : ""
-                    }><li className='px-2'>Home</li></NavLink>
-
-                    {user && <NavLink to="/listedbooks" className={({ isActive }) =>
-                        isActive ? "active" : ""
-                    }><li className='px-2'>Listed Books</li></NavLink>}
-
-                    <NavLink to="/pagestoread" className={({ isActive }) =>
-                        isActive ? "active" : ""
-                    }><li className='pl-3'>Pages To Read</li></NavLink>
-                    <NavLink to="/contactus" className={({ isActive }) =>
-                        isActive ? "active" : ""
-                    }><li className='pl-3'>Contact Us</li></NavLink>
-
+                    {lists}
                 </ul>
 
                 <div className='my-3 flex gap-2 items-center'>
@@ -56,19 +61,9 @@ const Navbar = () => {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-1" aria-label="close sidebar" className="drawer-overlay"></label>
+
                 <ul className="menu bg-linear-to-t from-emerald-700 to-blue-800 min-h-full w-80 p-4">
-                    <NavLink to="/" className={({ isActive }) =>
-                        isActive ? "active" : ""
-                    }><li className='py-2'>Home</li></NavLink>
-                    <NavLink to="/listedbooks" className={({ isActive }) =>
-                        isActive ? "active" : ""
-                    }><li className='pb-2'>Listed Books</li></NavLink>
-                    <NavLink to="/pagestoread" className={({ isActive }) =>
-                        isActive ? "active" : ""
-                    }><li>Pages To Read</li></NavLink>
-                    <NavLink to="/contactus" className={({ isActive }) =>
-                        isActive ? "active" : ""
-                    }><li>Contact Us</li></NavLink>
+                    {lists}
 
                 </ul>
             </div>

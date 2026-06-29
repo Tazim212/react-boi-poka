@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 const Banner = () => {
     return (
         <div className='flex flex-col-reverse md:flex-row justify-center items-center gap-5 md:gap-16 
-        bg-linear-to-r from-gray-400 to-indigo-300 text-white shadow-2xl'>
+        bg-linear-to-r from-gray-400 to-indigo-300 text-white shadow-2xl px-0 md:px-3'>
             <div className='text-center md:text-left'>
                 <h1 className='text-4xl font-bold pb-6'>Books to freshen<br></br> up your bookshelf</h1>
                 <Link to="/allbooks"><button className='btn btn-accent mb-5 md:mb-0'>View The List</button></Link>

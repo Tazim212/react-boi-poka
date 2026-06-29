@@ -9,7 +9,6 @@ const axiosInstance = axios.create({
 
 const useAxios = () => {
     const { user } = useAuth()
-    // console.log(user)
     useEffect(() =>{
          const requestInterceptor = axiosInstance.interceptors.request.use((config => {
 

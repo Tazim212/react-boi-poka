@@ -21,7 +21,7 @@ const BookContainer = () => {
                 <h1 className='text-2xl md:text-4xl font-bold'>Featured Books</h1>
                 <p className='text-center pb-3'>Books that you will like to read and show details</p>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-6 py-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-4'>
                 {
                     books.map(book => <BooksCard key={book._id} book={book}></BooksCard>)
                 }

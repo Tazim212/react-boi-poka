@@ -23,9 +23,10 @@ const ContactUs = () => {
             })
 
     }
+
     return (
-        <div className="flex justify-center items-center gap-15">
-            <div className="w-80 shadow-2xl py-2 px-6">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-15">
+            <div className="w-80 shadow-2xl py-3 px-6">
                 <h1 className="font-bold text-2xl/7 text-amber-800 italic">Have a question, suggestion, or feedback?
                 </h1>
                 <p className="py-5 text-gray-600">We would love to hear any question or doubts of yours to solve your problems</p>

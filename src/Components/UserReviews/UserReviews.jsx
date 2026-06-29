@@ -7,19 +7,19 @@ import { FaStar } from "react-icons/fa";
 
 
 const UserReviews = () => {
-    // const [review, setReview] = useState([])
+
     return (
         <div className='bg-gray-300 py-3'>
-            <div className=' py-2 ps-0 md:ps-5 text-black text-center md:text-left'>
+            <div className=' py-2 ps-0 md:ps-10 lg:ps-5 text-black text-center md:text-left'>
                 <h1 className="font-bold text-2xl md:text-4xl">Reviews</h1>
                 <p className='pt-2'>Our users gave their valuable reviews</p>
             </div>
 
             {/* ------------------ review-1 -------------- */}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mx-4 md:mx-0 p-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 justify-items-center md:justify-evenly md:items-baseline py-3">
 
-                <div className="card image-full w-75 shadow-sm">
+                <div className="card w-75 image-full shadow-sm rounded-3xl">
                     <figure>
                         <img
                             src={person1}
@@ -33,7 +33,7 @@ const UserReviews = () => {
                 </div>
                 {/* ------------------ review-2 -------------- */}
 
-                <div className="card image-full w-75 shadow-sm">
+                <div className="card w-75 image-full shadow-sm rounded-3xl">
                     <figure>
                         <img
                             src={person2}
@@ -49,7 +49,7 @@ const UserReviews = () => {
 
                 {/* ------------------ review-3 -------------- */}
 
-                <div className="card image-full w-75 shadow-sm">
+                <div className="card w-75 image-full shadow-sm rounded-3xl">
                     <figure>
                         <img
                             src={person3}
@@ -63,17 +63,17 @@ const UserReviews = () => {
                 </div>
                 {/* ------------------ review-4 -------------- */}
 
-                <div className="card image-full w-75 px-2 shadow-sm">
+                <div className="card h-46 image-full shadow-sm rounded">
                     <figure>
                         <img
                             src={person4}
-                            className='w-full'
+                            className='w-70'
                             alt="Shoes" />
                     </figure>
-                    <div className="card-body">
+                    <div className="relative top-5 px-9">
                         <h2 className="card-title text-amber-500">Sophia Martinez</h2>
-                        <p className="italic">"Beautiful design, smooth experience, and a great variety of books. I always find something interesting to read here."</p>
-                        <p className='flex items-center gap-2'>Rating: <span className='text-yellow-300'><FaStar></FaStar></span> </p>
+                        <p className="italic text-sm text-ellipsis pt-2.5">"Beautiful design, smooth experience, and a great variety of books. I always find something interesting to read."</p>
+                        <p className='flex items-center gap-2 pt-3.5 text-sm'>Rating: <span className='text-yellow-300'><FaStar></FaStar></span> </p>
                     </div>
                 </div>
 
